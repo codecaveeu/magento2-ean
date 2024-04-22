@@ -1,0 +1,37 @@
+<?php
+
+/** @var \CodeCave\EAN\Block\Adminhtml\Form\Ean $methodCode */
+$methodCode = $block->escapeHtml($block->getMethodCode());
+?>
+<fieldset class="fieldset items <?= $methodCode ?>" id="payment_form_<?= $methodCode ?>" style="display: none">
+    <div class="field number required">
+        <label for="ean_number" class="label"><span><?= $block->escapeHtml(__('EAN-Nummer')) ?></span></label>
+        <div class="control">
+            <input type="text" id="ean_number" name="payment[ean_number]"
+                   title="<?php echo $block->escapeHtml(__('EAN Nummer')) ?>"
+                   class="input-text required-entry"
+                   value="<?= $block->escapeHtml($block->getAdditionalInfo('ean_number')) ?>"/>
+
+        </div>
+    </div>
+    <div class="field number required">
+        <label for="ean_ref" class="label"><span><?= $block->escapeHtml(__('Reference')) ?></span></label>
+        <div class="control">
+            <input type="text" id="ean_ref" name="payment[ean_ref]" title="<?= $block->escapeHtml(__('Reference')) ?>"
+                   class="input-text required-entry"
+                   value="<?= $block->escapeHtml($block->getAdditionalInfo('ean_ref')) ?>"/>
+
+        </div>
+    </div>
+    <div class="field number required">
+        <label for="ean_ins" class="label"><span><?= $block->escapeHtml(__('Institution')) ?></span></label>
+        <div class="control">
+            <input type="text" id="ean_ins" name="payment[ean_ins]" title="<?= $block->escapeHtml(__('Institution')) ?>"
+                   class="input-text required-entry"
+                   value="<?= $block->escapeHtml($block->getAdditionalInfo('ean_ins')) ?>"/>
+        </div>
+    </div>
+</fieldset>
+
+
+
