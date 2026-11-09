@@ -11,7 +11,6 @@ define(
             defaults: {
                 template: 'CodeCave_EAN/payment/ean',
                 eanNumber: '',
-                eanCompany: '',
                 eanIns: '',
                 eanRef: ''
             },
@@ -19,7 +18,6 @@ define(
             initObservable: function () {
                 this._super()
                     .observe('eanNumber')
-                    .observe('eanCompany')
                     .observe('eanIns')
                     .observe('eanRef');
                 return this;
@@ -30,7 +28,6 @@ define(
                     "method": this.item.method,
                     "additional_data": {
                         'ean_number': this.eanNumber(),
-                        'ean_company': this.eanCompany(),
                         'ean_ins': this.eanIns(),
                         'ean_ref': this.eanRef()
                     }
@@ -49,12 +46,7 @@ define(
             getInstructions: function () {
                 var config = window.checkoutConfig.payment[this.getCode()] || {};
                 return config.instructions || '';
-            },
-
-            /** Returns send check to info */
-            getMailingAddress: function () {
-                return window.checkoutConfig.payment.checkmo.mailingAddress;
-            },
+            }
         });
     }
 );
