@@ -6,6 +6,7 @@ namespace CodeCave\EAN\Test\Integration;
 use CodeCave\EAN\Test\Integration\Support\CartBuilder;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Payment\Helper\Data as PaymentHelper;
+use Magento\Payment\Model\Config as PaymentConfig;
 use Magento\Quote\Api\Data\PaymentInterfaceFactory;
 use Magento\Quote\Api\PaymentMethodManagementInterface;
 use Magento\TestFramework\Fixture\Config;
@@ -38,6 +39,13 @@ class MethodAvailabilityTest extends TestCase
         $method = Bootstrap::getObjectManager()->get(PaymentHelper::class)->getMethodInstance('ean');
 
         $this->assertTrue($method->canUseInternal());
+    }
+
+    public function testMethodIsKeptOutOfMultiAddressCheckout(): void
+    {
+        $methodsInfo = Bootstrap::getObjectManager()->get(PaymentConfig::class)->getMethodsInfo();
+
+        $this->assertEmpty($methodsInfo['ean']['allow_multiple_address'] ?? null);
     }
 
     private function availableCodes(int $cartId): array
