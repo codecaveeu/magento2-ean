@@ -7,7 +7,20 @@
             <argument name="infoBlockType" xsi:type="string">CodeCave\EAN\Block\Info\Ean</argument>
             <argument name="formBlockType" xsi:type="string">CodeCave\EAN\Block\Adminhtml\Form\Ean</argument>
             <argument name="valueHandlerPool" xsi:type="object">CodeCaveValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">CodeCaveValidatorPool</argument>
 <!--            <argument name="commandPool" xsi:type="object">CodeCaveCommandPool</argument>-->
+        </arguments>
+    </virtualType>
+    <virtualType name="CodeCaveValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">CodeCaveCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CodeCaveCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">CodeCaveConfig</argument>
         </arguments>
     </virtualType>
     <virtualType name="CodeCaveValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
