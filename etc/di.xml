@@ -15,6 +15,7 @@
         <arguments>
             <argument name="validators" xsi:type="array">
                 <item name="country" xsi:type="string">CodeCaveCountryValidator</item>
+                <item name="global" xsi:type="string">CodeCave\EAN\Gateway\Validator\EanValidator</item>
             </argument>
         </arguments>
     </virtualType>
