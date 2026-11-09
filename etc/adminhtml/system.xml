@@ -15,11 +15,6 @@
                        showInStore="1">
                     <label>Title</label>
                 </field>
-                <field id="order_status" translate="label" type="select" sortOrder="20" showInDefault="1"
-                       showInWebsite="1" showInStore="0">
-                    <label>New Order Status</label>
-                    <source_model>CodeCave\EAN\Model\Config\Source\Order\Status\Pendingpayment</source_model>
-                </field>
                 <field id="allowspecific" translate="label" type="allowspecific" sortOrder="40" showInDefault="1"
                        showInWebsite="1" showInStore="0">
                     <label>Payment from Applicable Countries</label>
