@@ -41,4 +41,9 @@
             <argument name="methodCode" xsi:type="const">\CodeCave\EAN\Model\Ui\ConfigProvider::CODE</argument>
         </arguments>
     </virtualType>
+    <type name="CodeCave\EAN\Model\Ui\ConfigProvider">
+        <arguments>
+            <argument name="config" xsi:type="object">CodeCaveConfig</argument>
+        </arguments>
+    </type>
 </config>

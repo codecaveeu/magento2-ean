@@ -11,6 +11,10 @@
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!--/ko-->
 
+        <!-- ko if: getInstructions() -->
+        <p class="ean-instructions" data-bind="html: getInstructions()"></p>
+        <!-- /ko -->
+
         <form id="ean-form" class="form form-ean" data-role="ean-form">
             <fieldset class="fieldset payment method" data-bind='attr: {id: "payment_form_" + getCode()}'>
 

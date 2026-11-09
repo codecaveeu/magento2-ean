@@ -46,6 +46,11 @@ define(
                 return $(form).validation() && $(form).validation('isValid');
             },
 
+            getInstructions: function () {
+                var config = window.checkoutConfig.payment[this.getCode()] || {};
+                return config.instructions || '';
+            },
+
             /** Returns send check to info */
             getMailingAddress: function () {
                 return window.checkoutConfig.payment.checkmo.mailingAddress;
